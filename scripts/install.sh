@@ -1,4 +1,4 @@
-#Script intended for https://developer.nvidia.com/jetson-nano-sd-card-image
+#Script is intended for https://developer.nvidia.com/jetson-nano-sd-card-image
 
 sudo systemctl set-default multi-user.target
 
