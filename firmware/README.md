@@ -2,20 +2,20 @@
 
 Все действия далее оформлены в отдельный скрипт : [install.sh](../scripts/install.sh)
 
-###Убираем графику
+### Убираем графику
 
 ```shell
 sudo systemctl set-default multi-user.target
 ```
 
-###Обновляем репозитории
+### Обновляем репозитории
 
 ```shell
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-###Установка типовой конфигурации ROS
+### Установка типовой конфигурации ROS
 ```shell
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -23,7 +23,7 @@ sudo apt-get update
 sudo apt-get --yes install ros-melodic-desktop
 ```
 
-###Создание ROS catkin среды
+### Создание ROS catkin среды
 
 ```shell
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
@@ -41,7 +41,7 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-###Установка необходимых пакетов
+### Установка необходимых пакетов
 
 ```shell
 sudo apt-get --yes install ros-melodic-cv-bridge ros-melodic-rosbridge-server ros-melodic-web-video-server libuvc-dev ros-melodic-uvc-camera ros-melodic-libuvc-camera ros-melodic-move-base ros-melodic-gmapping ros-melodic-robot-localization
@@ -59,7 +59,7 @@ cd ~/catkin_ws/
 catkin_make
 ```
 
-###Установка веб сервера
+### Установка веб сервера
 
 ```shell
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -70,7 +70,7 @@ npm install rosnodejs express socket.io yargs
 npm install
 ```
 
-###Конфигурация
+### Конфигурация
 
 Настроить права :
 ```shell
@@ -104,7 +104,7 @@ sudo gpasswd --add rosgolf dialout
 ```
 TODO: добавить скрипт для настройки камеры из режимов
 
-###Запуск ROS сборки
+### Запуск ROS сборки
 
 roslaunch rosgolf_web_interface rosgolf_interface.launch
 
