@@ -15,7 +15,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-###Установка типовой 
+###Установка типовой конфигурации ROS
 ```shell
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -72,9 +72,19 @@ npm install
 
 ###Конфигурация
 
-Заменить имя СОМ порта для связи с платой на текущий в параметре <param name="uart" value="{имя СОМ порта}"/>
-Пользователю под которым запускается ROS пакет должен быть доступен порт.
-Если используется Jetson Nano аппаратный /dev/ttyTHS1, то надо освободить его от системных служб
+Настроить права :
+```shell
+sudo ~/catkin_ws/src/rosgolf_web_interface/script/setup_udev.sh
+```
+
+Отредактировать  ```~/catkin_ws/src/rosgolf_web_interface/launch/rosgolf_interface.launch```
+
+Заменить имя СОМ порта для связи с платой на текущий в параметре 
+```xml
+<param name="uart" value="{имя СОМ порта}"/>
+```
+Пользователю под которым запускается ROS пакет должен быть доступен этот порт.  
+Если используется Jetson Nano аппаратный ```/dev/ttyTHS1``` его надо освободить от системных служб
 
 ```shell
 sudo systemctl stop nvgetty
@@ -82,8 +92,6 @@ sudo systemctl disable nvgetty
 sudo udevadm trigger
 sudo gpasswd --add rosgolf dialout
 ```
-
-Отредактировать  ```~/catkin_ws/src/rosgolf_web_interface/launch/rosgolf_interface.launch```
 
 Заменить VID/PID в настройках камеры :
 ```xml
