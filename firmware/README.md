@@ -1,6 +1,6 @@
 Установка ROS велась с [чистого образа](https://developer.nvidia.com/jetson-nano-sd-card-image)
 
-Все действия далее оформлены в отдельный скрипт : [install.sh](./scripts/install.sh)
+Все действия далее оформлены в отдельный скрипт : [install.sh](../scripts/install.sh)
 
 ###Убираем графику
 
