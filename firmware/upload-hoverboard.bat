@@ -1,1 +1,2 @@
-dfu-util-static.exe --device 0483:df11 -i 0 -a 0 -s 0x08000000:2048 --reset --download firmware.bin
+openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg -c flash "write_image erase firmware.bin 0x8000000"
+
